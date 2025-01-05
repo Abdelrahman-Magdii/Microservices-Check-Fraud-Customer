@@ -25,6 +25,10 @@ The architecture includes the following key components:
 - Endpoint: `/fraud`
 - Port: `8081`
 
+#### C. Notification Service
+- Endpoint: `/notification`
+- Port: `8082`
+
 ### 3. **API Gateway (APIGW)**
 - Acts as the main entry point for clients.
 - Performs API key validation and forwards requests to internal services.
