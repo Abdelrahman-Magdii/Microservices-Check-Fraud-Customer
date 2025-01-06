@@ -33,11 +33,9 @@ The architecture includes the following key components:
 ### 3. **API Gateway (APIGW)**
 - Acts as the main entry point for clients.
 - Performs API key validation and forwards requests to internal services.
-- **Example Features**:
-    - Validation: `API Key: xyz`
-    - Distributed tracing (e.g., `SpanId`, `TraceID`)
 
-### 4. **Message Queue**
+
+### 4. **Message Queue (amqp)**
 #### RabbitMQ
 - **Purpose**: Enables asynchronous communication between services.
 - **Components**:
@@ -57,7 +55,7 @@ The architecture includes the following key components:
     - Centralized management of configuration files.
 
 ### 6. **Distributed Tracing**
-#### Sleuth and Zipkin
+#### Zipkin
 - **Purpose**: Provides tracing and monitoring capabilities across services.
 - **Features**:
     - TraceID and SpanID for tracking requests.
@@ -72,21 +70,6 @@ The architecture includes the following key components:
 
 ### 9. **Postgres Database**
 - Acts as the persistent storage layer for the services.
-
----
-
-## Deployment Overview
-- **Public Network**:
-    - API Gateway for external requests.
-    - DMZ layer for secure access.
-- **Private Network**:
-    - Internal communication between services.
-    - Asynchronous message processing with RabbitMQ.
-
-### Deployment Process:
-1. Build and package microservices as JAR files.
-2. Deploy Docker containers using Kubernetes (`kubectl apply`).
-3. Register microservices with Eureka Server.
 
 ---
 
@@ -107,10 +90,10 @@ The architecture includes the following key components:
 
 ## Key Technologies
 - **Spring Boot**: Microservices framework.
-- **RabbitMQ**: Asynchronous messaging.
+- **RabbitMQ & Kafka**: Asynchronous messaging.
 - **Postgres**: Database.
 - **Eureka**: Service discovery.
-- **Sleuth & Zipkin**: Distributed tracing.
+- **Zipkin**: Distributed tracing.
 - **Docker & Kubernetes**: Containerization and orchestration.
 
 ---
