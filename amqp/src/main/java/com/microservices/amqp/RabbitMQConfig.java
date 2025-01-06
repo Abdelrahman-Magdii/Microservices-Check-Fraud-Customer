@@ -33,7 +33,7 @@ public class RabbitMQConfig {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(this.connectionFactory);
 
         // Set the message converter for serializing and deserializing messages.
-        rabbitTemplate.setMessageConverter(jacksonConverter());
+        rabbitTemplate.setMessageConverter(this.jacksonConverter());
 
         // Return the configured RabbitTemplate (AmqpTemplate).
         return rabbitTemplate;
@@ -48,13 +48,13 @@ public class RabbitMQConfig {
     @Bean
     public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory() {
         // Create a new factory instance.
-        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+        final SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
 
         // Set the connection factory for the factory.
-        factory.setConnectionFactory(connectionFactory);
+        factory.setConnectionFactory(this.connectionFactory);
 
         // Set the message converter for the factory to handle message serialization/deserialization.
-        factory.setMessageConverter(jacksonConverter());
+        factory.setMessageConverter(this.jacksonConverter());
 
         // Return the configured factory.
         return factory;
@@ -69,8 +69,8 @@ public class RabbitMQConfig {
     @Bean
     public MessageConverter jacksonConverter() {
         // Return a new instance of Jackson2JsonMessageConverter for JSON serialization.
-        MessageConverter jackson2JsonMessageConverter = new Jackson2JsonMessageConverter();
-        return jackson2JsonMessageConverter;
+        return new Jackson2JsonMessageConverter();
     }
+
 
 }
