@@ -2,6 +2,7 @@
 
 This document provides an overview of the microservices architecture implemented, detailing the components, their interactions, and how they work together to deliver a scalable and efficient system.
 
+![](microservices.png)
 ---
 
 ## System Architecture

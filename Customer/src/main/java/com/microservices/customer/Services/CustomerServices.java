@@ -39,7 +39,7 @@ public class CustomerServices {
         final NotificationRequest notificationRequest = new NotificationRequest(
                 customer.getId(),
                 customer.getEmail(),
-                String.format("Hi %s, welcome to Amigoscode...",
+                String.format("Hi %s, welcome to Microservices...",
                         customer.getFirstName())
         );
 
