@@ -94,7 +94,7 @@ The architecture includes the following key components:
 
 ## Key Technologies
 - **Spring Boot**: Microservices framework.
-- **RabbitMQ **: Asynchronous messaging.
+- **RabbitMQ**: Asynchronous messaging.
 - **Postgres**: Database.
 - **Eureka**: Service discovery.
 - **Zipkin**: Distributed tracing.
