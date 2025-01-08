@@ -1,7 +1,7 @@
 package com.microservices.amqp;
 
 import lombok.AllArgsConstructor;
-import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -70,6 +70,22 @@ public class RabbitMQConfig {
     public MessageConverter jacksonConverter() {
         // Return a new instance of Jackson2JsonMessageConverter for JSON serialization.
         return new Jackson2JsonMessageConverter();
+    }
+
+
+    @Bean
+    public Queue queue() {
+        return new Queue("queueName", false);
+    }
+
+    @Bean
+    public DirectExchange exchange() {
+        return new DirectExchange("internal.exchange");
+    }
+
+    @Bean
+    public Binding binding(final Queue queue, final DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("routingKey");
     }
 
 
