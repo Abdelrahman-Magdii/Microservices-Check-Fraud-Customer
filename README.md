@@ -48,6 +48,8 @@ The architecture includes the following key components:
 2. Exchange forwards messages to queues (`App A Queue`, `App B Queue`, etc.) based on routing patterns.
 3. Consumers (`App A`, `App B`, etc.) retrieve messages from their respective queues.
 
+![](RabbitMQ.png)
+
 ### 5. **Distributed Configuration**
 #### Config Server
 - **Purpose**: Provides environment configurations to microservices dynamically.
@@ -71,6 +73,8 @@ The architecture includes the following key components:
 ### 9. **Postgres Database**
 - Acts as the persistent storage layer for the services.
 
+![](Eureka.png)
+
 ---
 
 ## Interaction Flow
@@ -90,11 +94,11 @@ The architecture includes the following key components:
 
 ## Key Technologies
 - **Spring Boot**: Microservices framework.
-- **RabbitMQ & Kafka**: Asynchronous messaging.
+- **RabbitMQ **: Asynchronous messaging.
 - **Postgres**: Database.
 - **Eureka**: Service discovery.
 - **Zipkin**: Distributed tracing.
-- **Docker & Kubernetes**: Containerization and orchestration.
+- **Docker**: Containerization and orchestration.
 
 ---
 
